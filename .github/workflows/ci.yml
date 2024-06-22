@@ -57,7 +57,7 @@ jobs:
         run: poetry run poe test
 
       - name: Upload coverage data
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-data
           path: .coverage
@@ -119,6 +119,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Download coverage data
+        uses: actions/download-artifact@4
+        with:
+          name: coverage-data
 
       - name: Set up Python
         uses: actions/setup-python@v5
