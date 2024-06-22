@@ -9,9 +9,7 @@ class Address:
         self.zip_code = zip_code
 
     @staticmethod
-    def _is_valid(
-        street: str, city: str, state: str, country: str, zip_code: str
-    ) -> bool:
+    def _is_valid(street: str, city: str, state: str, country: str, zip_code: str) -> bool:
         # Simplistic validation, can be improved
         return all([street, city, state, country, zip_code])
 
@@ -30,6 +28,4 @@ class Address:
         return hash((self.street, self.city, self.state, self.country, self.zip_code))
 
     def __str__(self):
-        return (
-            f"{self.street}, {self.city}, {self.state}, {self.country}, {self.zip_code}"
-        )
+        return f"{self.street}, {self.city}, {self.state}, {self.country}, {self.zip_code}"
