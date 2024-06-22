@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "py-booking"
+version = "0.1.0"
+description = "PyBooking is a reservation management API built with Python."
+authors = ["Daniel Joris <danieljoris08@gmail.com>"]
+license = "MIT license"
+readme = "README.md"
+packages = [
+    {include = "src"}
+]
+
+[tool.poetry.dependencies]
+python = "3.12"
+fastapi = "0.111.0"
+pydantic = "2.7.4"
+SQLAlchemy = {extras = ["asyncio"], version = "2.0.31"}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "8.2.2"
+pytest-cov = "5.0.0"
+isort = "5.13.2"
+black = "24.4.2"
+flake8 = "7.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
