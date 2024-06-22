@@ -29,7 +29,7 @@ asyncio_mode = "auto"
 testpaths = ["tests"]
 
 [tool.poe]
-include = ["./cli/tests_tasks.toml"]
+include = ["./cli/tests_tasks.toml", "./cli/fmt_tasks.toml"]
 
 [build-system]
 requires = ["poetry-core"]
