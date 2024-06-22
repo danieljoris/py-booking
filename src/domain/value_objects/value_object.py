@@ -1,7 +1,14 @@
-from abc import ABC
+from abc import ABC, ABCMeta
+from dataclasses import dataclass
 
 
-class ValueObject(ABC):
+class ImmutableMeta(ABCMeta):
+    def __new__(cls, name, bases, class_dict):
+        cls_instance = super().__new__(cls, name, bases, class_dict)
+        return dataclass(frozen=True)(cls_instance)
+
+
+class ValueObject(ABC, metaclass=ImmutableMeta):
     def __eq__(self, other):
         if not isinstance(other, ValueObject):
             return False
