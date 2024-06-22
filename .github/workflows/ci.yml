@@ -1,0 +1,36 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.12.0"
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          poetry-version: 1.7.1
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run style check
+        run: poe style
+
+      - name: Run tests
+        run: poe test
