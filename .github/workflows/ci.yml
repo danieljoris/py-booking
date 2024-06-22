@@ -48,10 +48,37 @@ jobs:
       - name: Install Poetry
         uses: snok/install-poetry@v1
         with:
-          poetry-version: 1.7.1
+          version: 1.7.1
 
       - name: Install dependencies
         run: poetry install
 
       - name: Run tests
         run: poetry run poe test
+
+  security-check:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.0"
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.7.1
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Checks dependencies for vulnerabilities and licenses.
+        run: poetry run safety check
+
+      - name: Checks common security issues in Python code.
+        run: poetry run bandit ./src -r
