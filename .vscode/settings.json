@@ -23,5 +23,6 @@
         "**/.pytest_cache": true,
         "**/__pycache__": true,
         "**/.coverage": true
-    }
+    },
+    "files.eol": "\n",
 }
