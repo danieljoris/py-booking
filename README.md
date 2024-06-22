@@ -4,7 +4,6 @@
 ![Build Status](https://img.shields.io/github/actions/workflow/status/danieljoris/py-booking/ci.yml?branch=main)
 ![Coverage Status](https://img.shields.io/codecov/c/github/danieljoris/py-booking)
 ![License](https://img.shields.io/github/license/danieljoris/py-booking)
-![Test Status](https://img.shields.io/github/workflow/status/danieljoris/py-booking/Tests)
 
 
 **PyBooking** is a reservation management API built with Python. This API is designed to streamline the booking process for various industries, including hotels, restaurants, and event management. PyBooking aims to provide an efficient and seamless experience for developers integrating reservation systems into their applications.
