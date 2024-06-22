@@ -23,6 +23,7 @@ poethepoet = "0.26.1"
 pytest-asyncio = "0.23.7"
 bandit = "1.7.9"
 safety = "3.2.3"
+mypy = "^1.10.0"
 
 [tool.pytest.ini_options]
 minversion = "8.2.2"
@@ -31,7 +32,15 @@ asyncio_mode = "auto"
 testpaths = ["tests"]
 
 [tool.poe]
-include = ["./cli/tests_tasks.toml", "./cli/fmt_tasks.toml"]
+include = [
+    "./cli/tests_tasks.toml",
+    "./cli/fmt_tasks.toml",
+    "./cli/type_check_tasks.toml",
+]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
 
 [build-system]
 requires = ["poetry-core"]
