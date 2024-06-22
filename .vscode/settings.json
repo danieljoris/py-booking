@@ -13,5 +13,15 @@
     ],
     "python.analysis.extraPaths": [
         "./src"
-    ]
+    ],
+    "files.exclude": {
+        "**/.pytest_cache": true,
+        "**/__pycache__": true,
+        "**/.coverage": true
+    },
+    "search.exclude": {
+        "**/.pytest_cache": true,
+        "**/__pycache__": true,
+        "**/.coverage": true
+    }
 }
