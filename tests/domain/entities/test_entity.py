@@ -1,4 +1,5 @@
 import pytest
+
 from src.domain.entities.entity import Entity
 
 
