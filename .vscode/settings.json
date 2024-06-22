@@ -17,12 +17,14 @@
     "files.exclude": {
         "**/.pytest_cache": true,
         "**/__pycache__": true,
-        "**/.coverage": true
+        "**/.coverage": true,
+        "**/.mypy_cache": true
     },
     "search.exclude": {
         "**/.pytest_cache": true,
         "**/__pycache__": true,
-        "**/.coverage": true
+        "**/.coverage": true,
+        "**/.mypy_cache": true
     },
     "files.eol": "\n",
     "[python]": {
