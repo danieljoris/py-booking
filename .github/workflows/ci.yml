@@ -30,7 +30,7 @@ jobs:
         run: poetry install
 
       - name: Run style check
-        run: poe style
+        run: poetry run poe style
 
       - name: Run tests
-        run: poe test
+        run: poetry run poe test
