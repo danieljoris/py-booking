@@ -1,0 +1,4 @@
+[flake8]
+exclude = .svn,CVS,.bzr,.hg,.git,__pycache__,.tox,venv,.eggs,build,.nox
+max-line-length = 95
+max-complexity = 10
