@@ -79,7 +79,7 @@ class TestHost:
         # Assert
         assert host.account_status == EAccountStatus.PermanentlyBanned
 
-    def test_should_an_error_when_activate_is_called_case_current_account_status_is_permanently_banned(
+    def test_should_error_when_activate_is_called_on_permanently_banned_account(
         self,
         host: Host,
     ):
