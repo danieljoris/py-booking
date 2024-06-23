@@ -1,10 +1,9 @@
-from datetime import datetime
-
-from domain.entities.entity import Entity
-from domain.enums.account_status import EAccountStatus
-from domain.value_objects.address import Address
-from domain.value_objects.email import Email
-from domain.value_objects.phone import Phone
+from datetime import UTC, datetime
+from src.domain.entities.entity import Entity
+from src.domain.enums.account_status import EAccountStatus
+from src.domain.value_objects.address import Address
+from src.domain.value_objects.email import Email
+from src.domain.value_objects.phone import Phone
 
 
 class Host(Entity):
@@ -14,10 +13,7 @@ class Host(Entity):
         email: Email,
         phone_number: Phone,
         address: Address,
-        registered_at: datetime,
-        account_status: EAccountStatus,
         bio: str = "",
-        rating: float = 0.0,
         profile_picture: str = "",
     ):
         super().__init__()
@@ -25,14 +21,13 @@ class Host(Entity):
         self.email = email
         self.phone_number = phone_number
         self.address = address
-        self.registered_at = registered_at
+        self.registered_at = datetime.now(UTC)
         self.bio = bio
-        self.rating = rating
         self.profile_picture = profile_picture
-        self.account_status = account_status
+        self.account_status = EAccountStatus.Active
 
     def update_rating(self, new_rating: float):
-        if new_rating < 0 or new_rating > 5:
+        if not new_rating > 0 or not new_rating <= 5:
             raise ValueError("Rating must be between 0 and 5")
         self.rating = new_rating
 
@@ -40,6 +35,9 @@ class Host(Entity):
         self.account_status = EAccountStatus.Deactivated
 
     def activate(self):
+        if self.account_status is EAccountStatus.PermanentlyBanned:
+            raise ValueError("A permanently banned user cannot be activated.")
+
         self.account_status = EAccountStatus.Active
 
     def ban(self):

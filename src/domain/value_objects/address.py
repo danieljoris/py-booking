@@ -1,12 +1,17 @@
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
 class Address:
-    def __init__(self, street: str, city: str, state: str, country: str, zip_code: str):
-        if not self._is_valid(street, city, state, country, zip_code):
+    street: str
+    city: str
+    state: str
+    country: str
+    zip_code: str
+
+    def __post_init__(self):
+        if not self._is_valid(self.street, self.city, self.state, self.country, self.zip_code):
             raise ValueError("Invalid address")
-        self.street = street
-        self.city = city
-        self.state = state
-        self.country = country
-        self.zip_code = zip_code
 
     @staticmethod
     def _is_valid(street: str, city: str, state: str, country: str, zip_code: str) -> bool:
