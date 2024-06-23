@@ -1,6 +1,8 @@
-import pytest
-from src.domain.value_objects.value_object import ValueObject
 import dataclasses
+
+import pytest
+
+from src.domain.value_objects.value_object import ValueObject
 
 
 class DummyValueObject(ValueObject):
