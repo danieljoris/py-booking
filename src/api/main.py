@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from src.api.routes.router import router as main_router
 
+from src.api.routes.router import router as main_router
 
 app = FastAPI()
 
