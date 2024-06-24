@@ -1,4 +1,4 @@
-from src.domain.entities.entity import Entity
+from src.seedwork.domain.entities import Entity
 
 
 class TestEntity:

@@ -1,4 +1,4 @@
-from domain.value_objects.value_object import ValueObject
+from src.seedwork.domain.value_objects import ValueObject
 
 
 class Location(ValueObject):

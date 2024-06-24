@@ -1,6 +1,6 @@
 from datetime import UTC, datetime
 
-from src.domain.entities.entity import Entity
+from src.seedwork.domain.entities import Entity
 from src.domain.enums.account_status import EAccountStatus
 from src.domain.value_objects.address import Address
 from src.domain.value_objects.email import Email
